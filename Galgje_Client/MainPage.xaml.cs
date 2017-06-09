@@ -67,6 +67,12 @@ namespace Galgje_Client
                 Debug.Write("connection gelukt id:" + Convert.ToString(GameHost.Id));
             }
 
+            else if(data.StartsWith("START"))
+            {
+                btn_start.Visibility = Visibility.Hidden
+            }
+
+
             else
             {
                 Debug.WriteLine("maindata: " + data);
@@ -82,6 +88,11 @@ namespace Galgje_Client
                 Debug.WriteLine("ButtonPressed " + i.ToString());
                 i++;
             }
+        }
+
+        private void btn_start_Click(object sender, RoutedEventArgs e)
+        {
+            GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id)+ "|newgame");
         }
     }
 }

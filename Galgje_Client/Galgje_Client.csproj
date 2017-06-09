@@ -111,6 +111,17 @@
     <None Include="Galgje_Client_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Hangman\Hn1.png" />
+    <Content Include="Assets\Hangman\Hn10.png" />
+    <Content Include="Assets\Hangman\Hn11.png" />
+    <Content Include="Assets\Hangman\Hn2.png" />
+    <Content Include="Assets\Hangman\Hn3.png" />
+    <Content Include="Assets\Hangman\Hn4.png" />
+    <Content Include="Assets\Hangman\Hn5.png" />
+    <Content Include="Assets\Hangman\Hn6.png" />
+    <Content Include="Assets\Hangman\Hn7.png" />
+    <Content Include="Assets\Hangman\Hn8.png" />
+    <Content Include="Assets\Hangman\Hn9.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -129,6 +140,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
