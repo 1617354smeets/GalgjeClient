@@ -45,7 +45,7 @@ namespace Galgje_Client
             server = new Server(raspPort, GameHost);
 
             //Koppel OnDataOntvangen aan de methode die uitgevoerd worden:
-            server.OnDataOntvangen += server.Server_OnDataOntvangen;
+            server.OnDataOntvangen += DataOntvangenVanServer;
 
 
             //Pin 21 initialiseren:
@@ -56,10 +56,23 @@ namespace Galgje_Client
             _pinSend.ValueChanged += _pinSend_ValueChanged;
         }
 
-        private void DataOntvangen(string data)
+        
+        public void DataOntvangenVanServer(string data)
         {
-            Debug.WriteLine(data);
+            if (data.StartsWith("SuccesfullAdded|"))
+            {
+                data = data.Replace("SuccesfullAdded|","");
+                GameHost.Id = Convert.ToInt16(data);
+
+                Debug.Write("connection gelukt id:" + Convert.ToString(GameHost.Id));
+            }
+
+            else
+            {
+                Debug.WriteLine("maindata: " + data);
+            }
         }
+
 
         private void _pinSend_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs e)
         {

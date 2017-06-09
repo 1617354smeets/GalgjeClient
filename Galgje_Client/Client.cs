@@ -26,11 +26,26 @@ namespace Galgje_Client
         private StreamSocket _socket;
         private DataWriter _writer;
 
+        private int id;
+
         public delegate void Error(string message);
         public delegate void DataRecived(string data);
 
         public string Ip { get { return _ip; } }
         public int Port { get { return _port; } }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
 
         public Client(string ip, int port)
         {
@@ -60,6 +75,7 @@ namespace Galgje_Client
 
         public async void Verstuur(string message)
         {
+
             if (_writer != null)
             {
                 _writer.WriteUInt32(_writer.MeasureString(message));
