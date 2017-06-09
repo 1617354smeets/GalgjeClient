@@ -334,8 +334,38 @@
     <AppxPackagedFile Include="C:\Users\Rai\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn1.png">
+      <PackagePath>Assets\Hangman\Hn1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn10.png">
+      <PackagePath>Assets\Hangman\Hn10.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn11.png">
+      <PackagePath>Assets\Hangman\Hn11.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn2.png">
+      <PackagePath>Assets\Hangman\Hn2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn3.png">
+      <PackagePath>Assets\Hangman\Hn3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn4.png">
+      <PackagePath>Assets\Hangman\Hn4.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn5.png">
+      <PackagePath>Assets\Hangman\Hn5.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn6.png">
+      <PackagePath>Assets\Hangman\Hn6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn7.png">
+      <PackagePath>Assets\Hangman\Hn7.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn8.png">
+      <PackagePath>Assets\Hangman\Hn8.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn9.png">
+      <PackagePath>Assets\Hangman\Hn9.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -363,6 +393,9 @@
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.xr.xml">
       <PackagePath>Galgje_Client.xr.xml</PackagePath>

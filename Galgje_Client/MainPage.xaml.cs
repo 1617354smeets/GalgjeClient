@@ -39,6 +39,10 @@ namespace Galgje_Client
         private GpioPin _pinSend;
         private GpioController _gpio;
 
+
+        private Spel game;
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -69,7 +73,28 @@ namespace Galgje_Client
 
             else if(data.StartsWith("START"))
             {
-                btn_start.Visibility = Visibility.Hidden
+                //Debug.Write(data);
+                data = data.Replace("START|", "");
+                //Debug.Write(data);
+                int aantal = Convert.ToInt16(data);
+                game = new Spel(aantal);
+
+
+                updatetextb(Convert.ToString(aantal));
+                //Debug.WriteLine("NICEONE");
+                //button.Visibility = Visibility.Collapsed;
+            }
+            else if (data.StartsWith("checkresponse|"))
+            {
+                data = data.Replace("checkresponse|", "");
+                if (data != "")
+                {
+
+                }
+                else
+                {
+                    //updategalg
+                }
             }
 
 
@@ -90,9 +115,42 @@ namespace Galgje_Client
             }
         }
 
-        private void btn_start_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
             GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id)+ "|newgame");
+        }
+
+        public void updatetextb(string tekst)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+() =>
+{
+    textBlock.Text = tekst;
+}
+);
+        }
+        public void updatetextb_1(string tekst)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+() =>
+{
+    tb_1.Text = tekst;
+}
+);
+        }
+
+
+        private void btn_check_Click(object sender, RoutedEventArgs e)
+        {
+            string tekst = tb_1.Text;
+            if(tekst.Length == 1)
+            {
+                GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
+            }
+            else
+            {
+                updatetextb_1("Voer één letter in");
+            }
         }
     }
 }

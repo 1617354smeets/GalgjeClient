@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>8AEB6103BD7D3FAB4E59337928FD0E59ABDF027AB14360508DEA0B49E2BFF974</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3A5986D539290D6C1E17915FAD7D37B68F3C6AA2AE861830A88F9AB6F0C1BA22</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>22cc4da7-770b-470c-a162-1fab13b4e7c4_1.0.0.0_arm__t5jm56ya88ff2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>22cc4da7-770b-470c-a162-1fab13b4e7c4_t5jm56ya88ff2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>22cc4da7-770b-470c-a162-1fab13b4e7c4</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-09T11:41:44.698</Modified>
+      <Modified>2017-06-09T13:44:04.388</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.exe">
       <PackagePath>entrypoint\Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-09T11:41:44.448</Modified>
+      <Modified>2017-06-09T13:44:03.998</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,9 +448,49 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-06-09T10:38:15.209</Modified>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn1.png">
+      <PackagePath>Assets\Hangman\Hn1.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.584</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn10.png">
+      <PackagePath>Assets\Hangman\Hn10.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.614</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn11.png">
+      <PackagePath>Assets\Hangman\Hn11.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn2.png">
+      <PackagePath>Assets\Hangman\Hn2.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.589</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn3.png">
+      <PackagePath>Assets\Hangman\Hn3.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.592</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn4.png">
+      <PackagePath>Assets\Hangman\Hn4.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.595</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn5.png">
+      <PackagePath>Assets\Hangman\Hn5.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.599</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn6.png">
+      <PackagePath>Assets\Hangman\Hn6.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.602</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn7.png">
+      <PackagePath>Assets\Hangman\Hn7.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.605</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn8.png">
+      <PackagePath>Assets\Hangman\Hn8.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.608</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn9.png">
+      <PackagePath>Assets\Hangman\Hn9.png</PackagePath>
+      <Modified>2017-06-09T12:34:04.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -486,9 +526,13 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-06-09T10:38:12.427</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2017-06-09T10:38:15.209</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.xr.xml">
       <PackagePath>Galgje_Client.xr.xml</PackagePath>
-      <Modified>2017-06-09T11:29:05.170</Modified>
+      <Modified>2017-06-09T13:39:22.470</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +541,11 @@
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-09T11:29:05.865</Modified>
+      <Modified>2017-06-09T13:39:23.037</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\Galgje_Client.exe">
       <PackagePath>Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-09T11:41:44.695</Modified>
+      <Modified>2017-06-09T13:44:04.384</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
