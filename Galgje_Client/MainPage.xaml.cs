@@ -93,7 +93,8 @@ namespace Galgje_Client
                 }
                 else
                 {
-                    //updategalg
+                    game.updatefout();
+
                 }
             }
 
