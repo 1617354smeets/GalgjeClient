@@ -367,6 +367,12 @@
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\Hn9.png">
       <PackagePath>Assets\Hangman\Hn9.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Logomakr_1NEXRE.png">
+      <PackagePath>Assets\Logomakr_1NEXRE.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Logomakr_4AZ0aa.png">
+      <PackagePath>Assets\Logomakr_4AZ0aa.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>

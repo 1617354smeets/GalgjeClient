@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core;
 using Windows.Devices.Gpio;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -39,6 +40,7 @@ namespace Galgje_Client
         private GpioPin _pinSend;
         private GpioController _gpio;
 
+        private int testint;
 
         private Spel game;
 
@@ -51,18 +53,16 @@ namespace Galgje_Client
             //Koppel OnDataOntvangen aan de methode die uitgevoerd worden:
             server.OnDataOntvangen += DataOntvangenVanServer;
 
+            
 
-            //Pin 21 initialiseren:
-            _gpio = GpioController.GetDefault();
-            _pinSend = _gpio.OpenPin(pinnr);
-            _pinSend.SetDriveMode(GpioPinDriveMode.InputPullUp);
-            _pinSend.DebounceTimeout = TimeSpan.FromMilliseconds(50);
-            _pinSend.ValueChanged += _pinSend_ValueChanged;
+           
+            
         }
 
-        
+        //Verwerkt de binnenkomende data
         public void DataOntvangenVanServer(string data)
         {
+            //De client is succesvol met de server verbonden en krijgt een id meegestuurt, dit id wordt bij opdrachten meegestuurd zodat de server weet welke client iets heeft opgevraagd.
             if (data.StartsWith("SuccesfullAdded|"))
             {
                 data = data.Replace("SuccesfullAdded|","");
@@ -70,12 +70,14 @@ namespace Galgje_Client
 
                 Debug.Write("connection gelukt id:" + Convert.ToString(GameHost.Id));
             }
-
+            
+            //Start een nieuw spel.
             else if(data.StartsWith("START"))
             {
-                //Debug.Write(data);
+                
                 data = data.Replace("START|", "");
                 //Debug.Write(data);
+                //maak een nieuw spel aan
                 int aantal = Convert.ToInt16(data);
                 game = new Spel(aantal);
 
@@ -84,18 +86,37 @@ namespace Galgje_Client
                 //Debug.WriteLine("NICEONE");
                 //button.Visibility = Visibility.Collapsed;
             }
+            //De controle van het spel
             else if (data.StartsWith("checkresponse|"))
             {
                 data = data.Replace("checkresponse|", "");
                 if (data != "")
                 {
+                    string[] readdata = data.Split('|');
+                    int i = readdata.Length;
+                    string updatewoord = "";
+                    //Update het te raden woord
+                    while (i < (readdata.Length -1)) ;
+                    {
+                        game.Geraden[Convert.ToInt16(readdata[i])] = game.Laatstechar;
+                    }
+
+                    
 
                 }
                 else
                 {
                     game.updatefout();
+                    updateImg_galg(updateGalg(game.Aantalfout));
 
                 }
+            }
+            else if(data.StartsWith("gameover|"))
+            {
+                data = data.Replace("gameover|", "");
+
+                updatetextb("GAME OVER!!!!\nHet woord was: " + data);
+
             }
 
 
@@ -106,30 +127,37 @@ namespace Galgje_Client
         }
 
 
-        private void _pinSend_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs e)
-        {
-            if (e.Edge == GpioPinEdge.FallingEdge)
-            {
-                GameHost.Verstuur("ButtonPressed " + i.ToString());
-                Debug.WriteLine("ButtonPressed " + i.ToString());
-                i++;
-            }
-        }
+       
 
+        //Start een nieuw spel, verstuurt het command naar de gamemaster
         private void button_Click(object sender, RoutedEventArgs e)
         {
             GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id)+ "|newgame");
         }
 
+        //Update de gebruikte letters
         public void updatetextb(string tekst)
         {
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
 () =>
 {
-    textBlock.Text = tekst;
+    tb_letters.Text = tekst;
 }
 );
         }
+        //Update de afbeelding van de galg
+        public void updateImg_galg(string tekst)
+        {
+            BitmapImage bpm = new BitmapImage(new Uri(this.BaseUri, tekst));
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+() =>
+{
+    img_galg.Source = bpm;
+}
+);
+        }
+
+        //update de tekst van tb1 
         public void updatetextb_1(string tekst)
         {
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
@@ -139,19 +167,112 @@ namespace Galgje_Client
 }
 );
         }
+        
+        //Update de galg
+        public string updateGalg(int nr)
+        {
+            string afbeelding;
+            switch(nr)
+            {
+                case 1:
+                    afbeelding = "Assets/Hangman/Hn1.png";
+                    break;
+                case 2:
+                    afbeelding = "Assets/Hangman/Hn2.png";
+                    break;
+                case 3:
+                    afbeelding = "Assets/Hangman/Hn3.png";
+                    break;
+                case 4:
+                    afbeelding = "Assets/Hangman/Hn4.png";
+                    break;
+                case 5:
+                    afbeelding = "Assets/Hangman/Hn5.png";
+                    break;
+                case 6:
+                    afbeelding = "Assets/Hangman/Hn6.png";
+                    break;
+                case 7:
+                    afbeelding = "Assets/Hangman/Hn7.png";
+                    break;
+                case 8:
+                    afbeelding = "Assets/Hangman/Hn8.png";
+                    break;
+                case 9:
+                    afbeelding = "Assets/Hangman/Hn9.png";
+                    break;
+                case 10:
+                    afbeelding = "Assets/Hangman/Hn10.png";
+                    break;
+                case 11:
+                    afbeelding = "Assets/Hangman/Hn11.png";
+                    break;
+                default:
+                    afbeelding = "Assets/Hangman/Hn1.png";
+                    break;
 
+                
+            }
+            return afbeelding;
+        }
+        //Controlleer of het ingevoerde character wel in het alfabet voorkomt
+        private bool isalfabet(char chr)
+        {
+            if (chr >= 'a' && chr <='z')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
+        //Verstuur de letter naar de gamemaster voor controle, de letter wordt ook toegevoegd aan de lijst met gebruikte letters.
         private void btn_check_Click(object sender, RoutedEventArgs e)
         {
+            /*
+            testint++;
+            updateImg_galg(updateGalg(testint));
+            */
+
+            
             string tekst = tb_1.Text;
-            if(tekst.Length == 1)
+            tekst = tekst.ToLower();
+            
+            
+
+            
+            if (tekst.Length == 1)
             {
-                GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
+                char chr = Convert.ToChar(tekst);
+
+                if (isalfabet(chr))
+                {
+                    GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
+                    game.Laatstechar = chr;
+                    game.VoegLetterToe(chr);
+
+                    string lgw = "";
+                    int i = 0;
+                    while (i < game.LettersGeweest.Count)
+                    {
+                        lgw = lgw + "-" + Convert.ToString(game.LettersGeweest[i]);
+                        i++;
+                    }
+                    updatetextb(lgw);
+
+                }
+                else
+                {
+                    updatetextb_1("Voer één letter in");
+                }
             }
             else
             {
                 updatetextb_1("Voer één letter in");
             }
+            
         }
     }
 }
