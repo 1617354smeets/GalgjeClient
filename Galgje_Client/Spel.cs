@@ -87,17 +87,14 @@ namespace Galgje_Client
         {
             lettersGeweest.Add(letter);
         }
-
+        //zodra de speler een fout maakt zal er een fout opgeteld worden bij het aantal fouten en vervolgens zal de buzzer buzzen.
         public void updatefout()
         {
             aantalfout++;
-            bzr.Buzz(500);
+            bzr.Buzz(1500);
         }
 
-        public void toonWoord()
-        {
-
-        }
+       //Update het woord
         public void updateWoord(string data)
         {
             string[] readdata = data.Split('|');

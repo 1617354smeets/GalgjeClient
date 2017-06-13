@@ -39,9 +39,9 @@ namespace Galgje_Client
 
         public void Buzz(int mili)
         {
-            gppin.Write(GpioPinValue.Low);
-            Task.Delay(mili).Wait();
             gppin.Write(GpioPinValue.High);
+            Task.Delay(mili).Wait();
+            gppin.Write(GpioPinValue.Low);
         }
 
     }

@@ -72,7 +72,7 @@ namespace Galgje_Client
                 Debug.WriteLine(ex.Message);
             }
         }
-
+        //Verstuur data naar de server
         public async void Verstuur(string message)
         {
 

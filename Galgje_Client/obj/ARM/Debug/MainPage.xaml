@@ -8,13 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:ConnectionId='1' x:Name="button" Content="Start spel" HorizontalAlignment="Left" Margin="1457,870,0,0" VerticalAlignment="Top" Height="82" Width="271"                     />
+        <Button x:ConnectionId='1' x:Name="button" Content="Start spel" HorizontalAlignment="Left" Margin="1531,946,0,0" VerticalAlignment="Top" Height="82" Width="271"                     />
         <Image x:ConnectionId='2' x:Name="img_galg" HorizontalAlignment="Left" Height="746" Margin="628,10,0,0" VerticalAlignment="Top" Width="706" Source="Assets/Hangman/TransparentHangmanPart0.png"/>
-        <TextBlock x:ConnectionId='3' x:Name="tb_letters" HorizontalAlignment="Left" Margin="93,890,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="25" Height="148" Width="294"/>
-        <TextBox x:ConnectionId='4' x:Name="tb_1" HorizontalAlignment="Left" Margin="880,926,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202"/>
-        <Button x:ConnectionId='5' x:Name="btn_check" Content="Check" HorizontalAlignment="Left" Margin="1111,926,0,0" VerticalAlignment="Top"                        />
-        <TextBlock x:ConnectionId='6' x:Name="textBlock1" HorizontalAlignment="Left" Margin="880,901,0,0" TextWrapping="Wrap" Text="Vul hieronder de letter in!" VerticalAlignment="Top"/>
-        <TextBlock x:ConnectionId='7' x:Name="textBlock" HorizontalAlignment="Left" Margin="954,870,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='3' x:Name="tb_letters" HorizontalAlignment="Left" Margin="35,890,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="25" Height="148" Width="626"/>
+        <TextBox x:ConnectionId='4' x:Name="tb_1" HorizontalAlignment="Left" Margin="880,961,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202"/>
+        <Button x:ConnectionId='5' x:Name="btn_check" Content="Check" HorizontalAlignment="Left" Margin="1111,961,0,0" VerticalAlignment="Top"                        />
+        <TextBlock x:ConnectionId='6' x:Name="textBlock1" HorizontalAlignment="Left" Margin="880,936,0,0" TextWrapping="Wrap" Text="Vul hieronder de letter in!" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='7' x:Name="textBlock" FontSize="25" HorizontalAlignment="Left" Margin="880,863,0,0" TextWrapping="Wrap" Text="Waiting for a connection" VerticalAlignment="Top"/>
+        <Image x:ConnectionId='8' x:Name="image" HorizontalAlignment="Left" Height="242" Margin="1588,10,0,0" VerticalAlignment="Top" Width="264" Source="Assets/Logomakr_4AZ0aa.png"/>
 
     </Grid>
 </Page>

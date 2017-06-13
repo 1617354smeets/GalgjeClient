@@ -19,7 +19,10 @@ using Windows.Devices.Gpio;
 using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-
+/*Created by: Rai Vleugels & Jannick Smeets     |
+ *B2D2 2016 - 2017 HBO ICT                      | 
+ * 
+ */
 namespace Galgje_Client
 {
    
@@ -34,14 +37,6 @@ namespace Galgje_Client
         private Client GameHost = new Client(raspConnect, raspPort);
         private Server server;
 
-        //Om te testen of het verzenden / versturen werkt -> 1 knop aansluiten op pin 21
-        private int i = 0;
-        private const int pinnr = 21;
-        private GpioPin _pinSend;
-        private GpioController _gpio;
-
-        private int testint;
-
         private Spel game;
 
 
@@ -50,7 +45,7 @@ namespace Galgje_Client
             this.InitializeComponent();
             server = new Server(raspPort, GameHost);
 
-            //Koppel OnDataOntvangen aan de methode die uitgevoerd worden:
+            //Koppel OnDataOntvangen aan de methode die uitgevoerd worden, handelt de inkomende data af:
             server.OnDataOntvangen += DataOntvangenVanServer;
 
             
@@ -69,6 +64,9 @@ namespace Galgje_Client
                 GameHost.Id = Convert.ToInt16(data);
 
                 Debug.Write("connection gelukt id:" + Convert.ToString(GameHost.Id));
+
+                //Start een nieuw spel, er wordt een verzoek naar de server gestuurd om een nieuw spel te starten
+                GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
             }
             
             //Start een nieuw spel.
@@ -76,13 +74,13 @@ namespace Galgje_Client
             {
                 
                 data = data.Replace("START|", "");
-                //Debug.Write(data);
                 //maak een nieuw spel aan
                 int aantal = Convert.ToInt16(data);
                 game = new Spel(aantal);
 
                 int ii = 0;
                 string tekst = "";
+                //Zorgt ervoor dat er evenveel streepjes worden weergeven als het aantal letters dat in het woord voorkomt.
                 while (ii < aantal)
                 {
                     tekst = tekst + " - ";
@@ -94,19 +92,22 @@ namespace Galgje_Client
                 //Debug.WriteLine("NICEONE");
                 //button.Visibility = Visibility.Collapsed;
             }
-            //De controle van het spel
+            //De controle van het spel, 
             else if (data.StartsWith("checkresponse|"))
             {
                 Debug.WriteLine("Checkrespons data: "+data);
                 data = data.Replace("checkresponse|", "");
+                //De ingevoerde letter is door de gamemaster als goed beoordeeld, verwerk de letters in het woord.
                 if (data.StartsWith("goed|"))
                 {
                     
                     data = data.Replace("goed|", "");
+                    //Update het deel van het woord dat geraden is.
                     game.updateWoord(data);
 
                     Task.Delay(150).Wait();
 
+                    //Update het woord in de gui, er wordt eerst een string gemaakt van het deel van het woord dat al geraden is.
                     int i = 0;
                     string woord = "";
                     while (i < game.Geraden.Count)
@@ -115,27 +116,35 @@ namespace Galgje_Client
                         i++;
                     }
 
+                    //Voer de update door.
                     updatewoord(woord);
                     
                     
 
                 }
+                //De opgestuurde letter is niet goed, er zijn nu twee mogelijkheden:
+                //1. De gebruiker heeft teveel fouten gemaakt en is gameover.
+                //2. De gebruiker heeft de letter verkeerd geraden, maar is nog niet gameover.
                 else if (data.StartsWith("fout|"))
                 {
                     data = data.Replace("fout|", "");
+                    //De gebruiker is gameover, het woord wordt nu getoond en er zal een nieuwe ronde gestart worden.
                     if (data.StartsWith("gameover|"))
                     {
                         data = data.Replace("gameover|", "");
-
                         updatetextb("GAME OVER!!!!\nHet woord was: " + data);
+                        //start nieuwe ronde
+                        GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
                     }
+
+                    //De gebruiker had het fout maar is nog niet gameover.
                     else
                     {
+                        //Voeg de fout toe aan het spel
                         game.updatefout();
-                        //Task.Delay(150).Wait();
-                        Debug.WriteLine("okkeeee");
                         int x = game.Aantalfout;
                         Task.Delay(150).Wait();
+                        //Update de galg, eerst wordt de juiste afbeelding gezocht om vervolgens de galg te updaten.
                         updateImg_galg(updateGalg(x));
                     }
                     
@@ -145,10 +154,10 @@ namespace Galgje_Client
             }
 
 
-
+            //De gestuurde data is geen command, doe er niks mee
             else
             {
-                Debug.WriteLine("maindata: " + data);
+                Debug.WriteLine("De ontvangen data is geen command, ontvangen data --> : " + data);
             }
         }
 
@@ -196,6 +205,7 @@ namespace Galgje_Client
 );
         }
 
+        //Update het woord
         public void updatewoord(string tekst)
         {
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
@@ -246,13 +256,14 @@ namespace Galgje_Client
                     afbeelding = "Assets/Hangman/Hn11.png";
                     break;
                 default:
-                    afbeelding = "Assets/Hangman/Hn1.png";
+                    afbeelding = "Assets/Hangman/TransparentHangmanPart0.png";
                     break;
 
                 
             }
             return afbeelding;
         }
+        
         //Controlleer of het ingevoerde character wel in het alfabet voorkomt
         private bool isalfabet(char chr)
         {
@@ -269,34 +280,35 @@ namespace Galgje_Client
         //Verstuur de letter naar de gamemaster voor controle, de letter wordt ook toegevoegd aan de lijst met gebruikte letters.
         private void btn_check_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            testint++;
-            updateImg_galg(updateGalg(testint));
-            */
-
-            
+            //zet de tekst van de tekstbox om naar een string en maak er kleine letters van            
             string tekst = tb_1.Text;
             tekst = tekst.ToLower();
             
             
 
-            
+            //Controlleer of er maar een letter is ingevuld, is dit niet het geval dan krijgt de speler een melding om maar één letter in te vullen.
             if (tekst.Length == 1)
             {
                 char chr = Convert.ToChar(tekst);
+                //Controleer of de letter al is gebruikt.
                 if (game.LettersGeweest.Contains(chr))
                 {
                     updatetextb_1("Letter is al gebruikt!");
                 }
-
+                //De letter is nog niet gebruikt
                 else
                 {
+                    //Controleer of het ingevoerde character wel in het alfabet voorkomt
                     if (isalfabet(chr))
                     {
+                        //Verstuur de letter naar de gamemaster
                         GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
                         game.Laatstechar = chr;
                         game.VoegLetterToe(chr);
 
+                        updatetextb_1("");
+
+                        //Zet de letter in de lijst met gebruikte letters
                         string lgw = "";
                         int i = 0;
                         while (i < game.LettersGeweest.Count)
@@ -307,6 +319,7 @@ namespace Galgje_Client
                         updatetextb(lgw);
 
                     }
+                    //Het ingevoerde character komt niet voor in het alfabet
                     else
                     {
                         updatetextb_1("Voer één letter in");
