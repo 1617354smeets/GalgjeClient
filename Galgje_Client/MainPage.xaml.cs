@@ -101,16 +101,34 @@ namespace Galgje_Client
                 data = data.Replace("checkresponse|", "");
                 if (data.StartsWith("goed|"))
                 {
+                    
                     data = data.Replace("goed|", "");
-                    string[] readdata = data.Split('|');
-                    int i = readdata.Length;
-                    string updatewoord = "";
-                    //Update het te raden woord
-                    while (i < (readdata.Length -1)) ;
+                    game.updateWoord(data);
+
+                    Task.Delay(150).Wait();
+
+                    int i = 0;
+                    string woord = "";
+                    while (i < game.Geraden.Count)
                     {
-                        game.Geraden[Convert.ToInt16(readdata[i])] = game.Laatstechar;
+                        woord = woord + game.Geraden[i];
+                        i++;
                     }
 
+                    updatewoord(woord);
+                    /*string[] readdata = data.Split('|');
+                    int i = 0;
+                    string updatewoord = "";
+                    Debug.WriteLine(readdata.Length);
+                    Debug.WriteLine(readdata);
+
+                    //Update het te raden woord
+                    while (i < (readdata.Length -1)) 
+                    {
+                        game.Geraden[Convert.ToInt16(readdata[i])] = game.Laatstechar;
+                        i++;
+                    }
+                    */
                     
 
                 }
