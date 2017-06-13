@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-12T09:03:11.071</Modified>
+      <Modified>2017-06-13T09:34:41.304</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.exe">
       <PackagePath>entrypoint\Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-12T09:03:09.722</Modified>
+      <Modified>2017-06-13T09:34:40.450</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -492,6 +492,10 @@
       <PackagePath>Assets\Hangman\Hn9.png</PackagePath>
       <Modified>2017-06-09T12:34:04.611</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Hangman\TransparentHangmanPart0.png">
+      <PackagePath>Assets\Hangman\TransparentHangmanPart0.png</PackagePath>
+      <Modified>2017-06-13T08:46:38.387</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\Assets\Logomakr_1NEXRE.png">
       <PackagePath>Assets\Logomakr_1NEXRE.png</PackagePath>
       <Modified>2017-06-12T09:02:37.208</Modified>
@@ -540,7 +544,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.xr.xml">
       <PackagePath>Galgje_Client.xr.xml</PackagePath>
-      <Modified>2017-06-09T13:39:22.470</Modified>
+      <Modified>2017-06-13T09:34:40.326</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -549,11 +553,11 @@
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-12T09:03:10.551</Modified>
+      <Modified>2017-06-13T09:34:40.989</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\Galgje_Client.exe">
       <PackagePath>Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-12T09:03:11.060</Modified>
+      <Modified>2017-06-13T09:34:41.295</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

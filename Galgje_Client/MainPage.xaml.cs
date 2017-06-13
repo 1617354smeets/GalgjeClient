@@ -81,17 +81,27 @@ namespace Galgje_Client
                 int aantal = Convert.ToInt16(data);
                 game = new Spel(aantal);
 
+                int ii = 0;
+                string tekst = "";
+                while (ii < aantal)
+                {
+                    tekst = tekst + " - ";
+                    ii++;
+                }
 
-                updatetextb(Convert.ToString(aantal));
+                updatewoord(tekst);
+                //updatetextb(Convert.ToString(aantal));
                 //Debug.WriteLine("NICEONE");
                 //button.Visibility = Visibility.Collapsed;
             }
             //De controle van het spel
             else if (data.StartsWith("checkresponse|"))
             {
+                Debug.WriteLine("Checkrespons data: "+data);
                 data = data.Replace("checkresponse|", "");
-                if (data != "")
+                if (data.StartsWith("goed|"))
                 {
+                    data = data.Replace("goed|", "");
                     string[] readdata = data.Split('|');
                     int i = readdata.Length;
                     string updatewoord = "";
@@ -104,20 +114,30 @@ namespace Galgje_Client
                     
 
                 }
-                else
+                else if (data.StartsWith("fout|"))
                 {
-                    game.updatefout();
-                    updateImg_galg(updateGalg(game.Aantalfout));
+                    data = data.Replace("fout|", "");
+                    if (data.StartsWith("gameover|"))
+                    {
+                        data = data.Replace("gameover|", "");
+
+                        updatetextb("GAME OVER!!!!\nHet woord was: " + data);
+                    }
+                    else
+                    {
+                        game.updatefout();
+                        //Task.Delay(150).Wait();
+                        Debug.WriteLine("okkeeee");
+                        int x = game.Aantalfout;
+                        Task.Delay(150).Wait();
+                        updateImg_galg(updateGalg(x));
+                    }
+                    
 
                 }
+                
             }
-            else if(data.StartsWith("gameover|"))
-            {
-                data = data.Replace("gameover|", "");
 
-                updatetextb("GAME OVER!!!!\nHet woord was: " + data);
-
-            }
 
 
             else
@@ -146,12 +166,14 @@ namespace Galgje_Client
 );
         }
         //Update de afbeelding van de galg
-        public void updateImg_galg(string tekst)
+        public async void updateImg_galg(string tekst)
         {
-            BitmapImage bpm = new BitmapImage(new Uri(this.BaseUri, tekst));
+            
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
 () =>
 {
+    // Your UI update code goes here!
+    BitmapImage bpm = new BitmapImage(new Uri(this.BaseUri, tekst));
     img_galg.Source = bpm;
 }
 );
@@ -167,7 +189,17 @@ namespace Galgje_Client
 }
 );
         }
-        
+
+        public void updatewoord(string tekst)
+        {
+            Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+() =>
+{
+    textBlock.Text = tekst;
+}
+);
+        }
+
         //Update de galg
         public string updateGalg(int nr)
         {
@@ -246,27 +278,36 @@ namespace Galgje_Client
             if (tekst.Length == 1)
             {
                 char chr = Convert.ToChar(tekst);
-
-                if (isalfabet(chr))
+                if (game.LettersGeweest.Contains(chr))
                 {
-                    GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
-                    game.Laatstechar = chr;
-                    game.VoegLetterToe(chr);
-
-                    string lgw = "";
-                    int i = 0;
-                    while (i < game.LettersGeweest.Count)
-                    {
-                        lgw = lgw + "-" + Convert.ToString(game.LettersGeweest[i]);
-                        i++;
-                    }
-                    updatetextb(lgw);
-
+                    updatetextb_1("Letter is al gebruikt!");
                 }
+
                 else
                 {
-                    updatetextb_1("Voer één letter in");
+                    if (isalfabet(chr))
+                    {
+                        GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|checkchar|" + tekst);
+                        game.Laatstechar = chr;
+                        game.VoegLetterToe(chr);
+
+                        string lgw = "";
+                        int i = 0;
+                        while (i < game.LettersGeweest.Count)
+                        {
+                            lgw = lgw + "-" + Convert.ToString(game.LettersGeweest[i]);
+                            i++;
+                        }
+                        updatetextb(lgw);
+
+                    }
+                    else
+                    {
+                        updatetextb_1("Voer één letter in");
+                    }
                 }
+
+                
             }
             else
             {
