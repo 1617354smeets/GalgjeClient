@@ -116,19 +116,7 @@ namespace Galgje_Client
                     }
 
                     updatewoord(woord);
-                    /*string[] readdata = data.Split('|');
-                    int i = 0;
-                    string updatewoord = "";
-                    Debug.WriteLine(readdata.Length);
-                    Debug.WriteLine(readdata);
-
-                    //Update het te raden woord
-                    while (i < (readdata.Length -1)) 
-                    {
-                        game.Geraden[Convert.ToInt16(readdata[i])] = game.Laatstechar;
-                        i++;
-                    }
-                    */
+                    
                     
 
                 }
