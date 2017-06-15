@@ -94,7 +94,7 @@ namespace Galgje_Client
         public void updatefout()
         {
             aantalfout++;
-            bzr.Buzz(1500);
+            bzr.Buzz(1000);
             //return aantalfout;
         }
 

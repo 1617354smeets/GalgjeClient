@@ -351,10 +351,10 @@ namespace Galgje_Client
                         int i = 0;
                         while (i < game.LettersGeweest.Count)
                         {
-                            lgw = lgw + "-" + Convert.ToString(game.LettersGeweest[i]);
+                            lgw = lgw + " " + Convert.ToString(game.LettersGeweest[i]);
                             i++;
                         }
-                        updatetextb(lgw);
+                        updatetextb("Gebruikte letters:\n"+lgw);
 
                     }
                     //Het ingevoerde character komt niet voor in het alfabet

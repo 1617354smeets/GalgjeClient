@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-15T12:20:02.240</Modified>
+      <Modified>2017-06-15T13:16:12.530</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.exe">
       <PackagePath>entrypoint\Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-15T12:20:02.026</Modified>
+      <Modified>2017-06-15T13:16:12.295</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -557,7 +557,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\Galgje_Client.exe">
       <PackagePath>Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-15T12:20:02.237</Modified>
+      <Modified>2017-06-15T13:16:12.527</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
