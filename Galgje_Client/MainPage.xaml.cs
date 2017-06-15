@@ -239,10 +239,11 @@ namespace Galgje_Client
             int i = 20;
             while (i>0)
             {
-                updatetextb(tekst +"/nDe volgende ronde start over: " + Convert.ToString(i) + " Seconden");
+                updatetextb(tekst +"\nDe volgende ronde start over: " + Convert.ToString(i) + " Seconden");
                 Task.Delay(1000).Wait();
                 i = i - 1;
             }
+            updatetextb("");
             GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
 
         }

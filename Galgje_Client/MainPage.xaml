@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Start spel" HorizontalAlignment="Left" Margin="1531,946,0,0" VerticalAlignment="Top" Height="82" Width="271" Click="button_Click"/>
         <Image x:Name="img_galg" HorizontalAlignment="Left" Height="746" Margin="628,10,0,0" VerticalAlignment="Top" Width="706" Source="Assets/Hangman/TransparentHangmanPart0.png"/>
         <TextBlock x:Name="tb_letters" HorizontalAlignment="Left" Margin="35,890,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="25" Height="148" Width="626"/>
         <TextBox x:Name="tb_1" HorizontalAlignment="Left" Margin="880,961,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202"/>
