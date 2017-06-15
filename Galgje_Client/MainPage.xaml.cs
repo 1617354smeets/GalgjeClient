@@ -48,10 +48,10 @@ namespace Galgje_Client
             //Koppel OnDataOntvangen aan de methode die uitgevoerd worden, handelt de inkomende data af:
             server.OnDataOntvangen += DataOntvangenVanServer;
 
+            game = new Spel();
 
-            
-           
-            
+
+
         }
 
         //Verwerkt de binnenkomende data
@@ -72,11 +72,10 @@ namespace Galgje_Client
             //Start een nieuw spel.
             else if(data.StartsWith("START"))
             {
-                
                 data = data.Replace("START|", "");
                 //maak een nieuw spel aan
                 int aantal = Convert.ToInt16(data);
-                game = new Spel(aantal);
+                game.start(aantal);
 
                 int ii = 0;
                 string tekst = "";
@@ -112,7 +111,7 @@ namespace Galgje_Client
                     string woord = "";
                     while (i < game.Geraden.Count)
                     {
-                        woord = woord + game.Geraden[i];
+                        woord = woord + game.Geraden[i] + " ";
                         i++;
                     }
 
@@ -151,7 +150,7 @@ namespace Galgje_Client
                         data = data.Replace("gameover|", "");
                         updatetextb("GAME OVER!!!!\nHet woord was: " + data);
                         //start nieuwe ronde
-                        counttonewround("GAME OVER");
+                        counttonewround("GAME OVER!!!!\nHet woord was: " + data +"\n");
                     }
 
                     //De gebruiker had het fout maar is nog niet gameover.
@@ -159,8 +158,9 @@ namespace Galgje_Client
                     {
                         //Voeg de fout toe aan het spel
                         game.updatefout();
+                        Task.Delay(250).Wait();
                         int x = game.Aantalfout;
-                        Task.Delay(150).Wait();
+                        Debug.WriteLine(Convert.ToString(x));
                         //Update de galg, eerst wordt de juiste afbeelding gezocht om vervolgens de galg te updaten.
                         updateImg_galg(updateGalg(x));
                     }
@@ -244,6 +244,9 @@ namespace Galgje_Client
                 i = i - 1;
             }
             updatetextb("");
+            updateImg_galg(updateGalg(0));
+            //game.stoppen();
+            //game = null;
             GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
 
         }
@@ -254,6 +257,9 @@ namespace Galgje_Client
             string afbeelding;
             switch(nr)
             {
+                case 0:
+                    afbeelding = "Assets/Hangman/Hn1.png";
+                    break;
                 case 1:
                     afbeelding = "Assets/Hangman/Hn1.png";
                     break;

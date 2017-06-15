@@ -67,20 +67,23 @@ namespace Galgje_Client
             }
         }
 
-        public Spel(int aantallettters1)
+        public Spel()
         {
-            aantalleters = aantallettters1;
+            bzr = new Buzzer(21);
+        }
+
+        public void start(int aantalletters1)
+        {
+            aantalleters = aantalletters1;
             lettersGeweest = new List<char>();
             aantalfout = 0;
-            bzr = new Buzzer(21);
             geraden = new List<char>();
             int i = 0;
-            while (i< aantalleters)
+            while (i < aantalleters)
             {
                 geraden.Add('-');
                 i++;
             }
-            
         }
 
         public void VoegLetterToe(char letter)
@@ -92,6 +95,7 @@ namespace Galgje_Client
         {
             aantalfout++;
             bzr.Buzz(1500);
+            //return aantalfout;
         }
 
        //Update het woord
@@ -110,6 +114,14 @@ namespace Galgje_Client
                 i++;
             }
         }
+
+        public void stoppen()
+        {
+            bzr = null;
+
+
+        }
+
 
     }
 }
