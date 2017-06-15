@@ -48,8 +48,8 @@ namespace Galgje_Client
             //Koppel OnDataOntvangen aan de methode die uitgevoerd worden, handelt de inkomende data af:
             server.OnDataOntvangen += DataOntvangenVanServer;
 
-            
 
+            
            
             
         }
@@ -118,8 +118,25 @@ namespace Galgje_Client
 
                     //Voer de update door.
                     updatewoord(woord);
-                    
-                    
+
+
+                    //Controleer of het woord geraden is
+                    int xxx = 0;
+                    int yyy = 0;
+                    while (xxx < game.Geraden.Count)
+                    {
+                        if (game.Geraden[xxx] == '-')
+                        {
+                            Debug.WriteLine(game.Geraden[xxx]);
+                            yyy++;
+                        }
+                        xxx++;
+                    }
+
+                    if (yyy == 0)
+                    {
+                        counttonewround("Geraden");
+                    }
 
                 }
                 //De opgestuurde letter is niet goed, er zijn nu twee mogelijkheden:
@@ -134,7 +151,7 @@ namespace Galgje_Client
                         data = data.Replace("gameover|", "");
                         updatetextb("GAME OVER!!!!\nHet woord was: " + data);
                         //start nieuwe ronde
-                        GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
+                        counttonewround("GAME OVER");
                     }
 
                     //De gebruiker had het fout maar is nog niet gameover.
@@ -214,6 +231,20 @@ namespace Galgje_Client
     textBlock.Text = tekst;
 }
 );
+        }
+
+        //Countdown to new round
+        public void counttonewround(string tekst)
+        {
+            int i = 20;
+            while (i>0)
+            {
+                updatetextb(tekst +"/nDe volgende ronde start over: " + Convert.ToString(i) + " Seconden");
+                Task.Delay(1000).Wait();
+                i = i - 1;
+            }
+            GameHost.Verstuur("ID" + Convert.ToString(GameHost.Id) + "|newgame");
+
         }
 
         //Update de galg

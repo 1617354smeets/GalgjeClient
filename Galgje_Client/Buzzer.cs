@@ -28,6 +28,7 @@ namespace Galgje_Client
                 gpio = GpioController.GetDefault();
                 gppin = gpio.OpenPin(pinnr);
                 gppin.SetDriveMode(GpioPinDriveMode.Output);
+                gppin.Write(GpioPinValue.Low);
 
 
             }
@@ -39,6 +40,7 @@ namespace Galgje_Client
 
         public void Buzz(int mili)
         {
+            Debug.WriteLine("BUZZZZZZZZZZZ");
             gppin.Write(GpioPinValue.High);
             Task.Delay(mili).Wait();
             gppin.Write(GpioPinValue.Low);

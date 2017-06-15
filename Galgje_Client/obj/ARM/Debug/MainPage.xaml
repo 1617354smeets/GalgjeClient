@@ -14,7 +14,7 @@
         <TextBox x:ConnectionId='4' x:Name="tb_1" HorizontalAlignment="Left" Margin="880,961,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202"/>
         <Button x:ConnectionId='5' x:Name="btn_check" Content="Check" HorizontalAlignment="Left" Margin="1111,961,0,0" VerticalAlignment="Top"                        />
         <TextBlock x:ConnectionId='6' x:Name="textBlock1" HorizontalAlignment="Left" Margin="880,936,0,0" TextWrapping="Wrap" Text="Vul hieronder de letter in!" VerticalAlignment="Top"/>
-        <TextBlock x:ConnectionId='7' x:Name="textBlock" FontSize="25" HorizontalAlignment="Left" Margin="880,863,0,0" TextWrapping="Wrap" Text="Waiting for a connection" VerticalAlignment="Top"/>
+        <TextBlock x:ConnectionId='7' x:Name="textBlock" FontSize="25" HorizontalAlignment="Left" Margin="666,863,0,0" TextWrapping="Wrap" Text="Waiting for a connection" VerticalAlignment="Top" TextAlignment="Center" Width="668"/>
         <Image x:ConnectionId='8' x:Name="image" HorizontalAlignment="Left" Height="242" Margin="1588,10,0,0" VerticalAlignment="Top" Width="264" Source="Assets/Logomakr_4AZ0aa.png"/>
 
     </Grid>

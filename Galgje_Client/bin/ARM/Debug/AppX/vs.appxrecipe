@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-13T15:18:56.540</Modified>
+      <Modified>2017-06-15T10:21:50.657</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.exe">
       <PackagePath>entrypoint\Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-13T15:18:55.788</Modified>
+      <Modified>2017-06-15T10:21:50.409</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -544,7 +544,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Galgje_Client.xr.xml">
       <PackagePath>Galgje_Client.xr.xml</PackagePath>
-      <Modified>2017-06-13T09:34:40.326</Modified>
+      <Modified>2017-06-15T10:06:16.219</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -553,11 +553,11 @@
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-13T15:18:56.342</Modified>
+      <Modified>2017-06-15T10:06:16.858</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Rai\Source\Repos\GalgjeClient\Galgje_Client\bin\ARM\Debug\Core\Galgje_Client.exe">
       <PackagePath>Galgje_Client.exe</PackagePath>
-      <Modified>2017-06-13T15:18:56.536</Modified>
+      <Modified>2017-06-15T10:21:50.654</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
